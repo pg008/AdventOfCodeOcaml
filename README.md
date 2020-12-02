@@ -16,7 +16,7 @@ Rešitev dneva `X` najlažje podate tako, da v mapo `src/solutions/` dodate dato
 
 V datoteki `solution.ml` dodajte nov vzorec v funkcijo `choose_solver`. Vhodne podatke zapišite v datoteko `data/day_X.in`.
 
-Program sedaj poženete z `make run DAY=X`. Program bo prebral vsebino vhodne datoteke za dan X, pognal `naloga1` in `naloga2` ter njuna rezultata izpisal na tako na standardni izhod kot v ustrezni izhodni datoteki.
+Program sedaj poženete z `make run DAY=X`. Program bo prebral vsebino vhodne datoteke za dan X, pognal `naloga1` in `naloga2` ter njuna rezultata izpisal tako na standardni izhod kot v ustrezni izhodni datoteki.
 
 ## Uporaba brez nameščenega `opam`-a (sistem windows brez dockerja)
 
@@ -24,7 +24,7 @@ V datoteki `project_windows` je že pripravljena koda za reševanje v eni sami d
 
 Za reševanje popravite funkcijo `choose_solver` in dodajte ustrezen modul `SolverX`.
 
-Program poženite s popravljenim `task`-om iz repozitorija predmeta. POZOR: Odstranite `-init`, saj drugače testnin program ne prepozna argumenta X:
+Program poženite s popravljenim `task`-om iz repozitorija predmeta. POZOR: Odstranite `-init`, saj drugače testni program ne prepozna argumenta X:
 ```
 C:\\ ... bin\\ocaml.exe  \"${file}\" X"
 ```
