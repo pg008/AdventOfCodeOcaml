@@ -3,6 +3,8 @@ open Utils.Signature
 let choose_solver : string -> (module Solver) = function
   | "0" -> (module Day0.Solver)
   | "1" -> (module Day1.Solver)
+  | "2" -> (module Day2.Solver)
+  | "3" -> (module Day3.Solver)
   | _ -> failwith "Ni še rešeno"
 
 let main () =
