@@ -9,6 +9,13 @@ module List = struct
 
   let lines = String.split_on_char '\n'
 
+  let rec make_patches rtr acc = function
+    | [] -> List.rev (acc :: rtr)
+    | "" :: (_ :: _ as rest) -> make_patches (acc :: rtr) "" rest
+    | l :: rest -> make_patches rtr (acc ^ " " ^ l) rest
+
+  let groups s = make_patches [] "" s
+
   let with_index l = List.mapi (fun i x -> (i, x)) l
 
   let count a l = l |> List.filter (fun x -> x = a) |> List.length
