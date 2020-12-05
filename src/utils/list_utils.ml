@@ -26,4 +26,6 @@ module List = struct
 
   let count_filter2 f l =
     List.fold_right (fun x s -> match f x with true -> s + 1 | false -> s) l 0
+
+  let maximum l = List.fold_left max (List.nth l 0) l
 end
