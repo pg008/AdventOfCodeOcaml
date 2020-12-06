@@ -28,4 +28,15 @@ module List = struct
     List.fold_right (fun x s -> match f x with true -> s + 1 | false -> s) l 0
 
   let maximum l = List.fold_left max (List.nth l 0) l
+
+  let rec reduce fn = function
+    | [] -> failwith "Empty list"
+    | [ a ] -> a
+    | x :: xs -> fn x (reduce fn xs)
+
+  let reduce2 fn l =
+    let rec reduce' acc fn l =
+      match l with x :: xs -> reduce' (fn x acc) fn xs | [] -> acc
+    in
+    match l with [] -> failwith "Empty list" | x :: xs -> reduce' x fn xs
 end
