@@ -1,5 +1,5 @@
 module Option = struct
-  include Option
+  include Stdlib.Option
 
   type 'a t = 'a Option.t
 

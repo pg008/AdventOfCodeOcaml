@@ -1,5 +1,5 @@
 module List = struct
-  include List
+  include Stdlib.List
 
   let int_list l = List.map int_of_string l
 
