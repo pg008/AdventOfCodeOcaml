@@ -39,4 +39,13 @@ module List = struct
       match l with x :: xs -> reduce' (fn x acc) fn xs | [] -> acc
     in
     match l with [] -> failwith "Empty list" | x :: xs -> reduce' x fn xs
+
+  let split_on_n l n =
+    let rec split' acc i = function
+      | [] -> (acc, [])
+      | l' when i <= 0 -> (acc, l')
+      | x :: xs -> split' (x :: acc) (i - 1) xs
+    in
+    let f, s = split' [] n l in
+    (List.rev f, s)
 end

@@ -1,0 +1,8 @@
+(library
+ (libraries utils)
+ (name solvers))
+
+(env
+ (dev
+  (flags
+   (:standard -warn-error -A))))

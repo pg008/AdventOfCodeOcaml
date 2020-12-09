@@ -1,4 +1,4 @@
-open Utils.Signature
+open Signature
 open Utils.List_utils
 
 module Solver : Solver = struct
