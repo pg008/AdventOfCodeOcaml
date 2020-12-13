@@ -48,4 +48,12 @@ module List = struct
     in
     let f, s = split' [] n l in
     (List.rev f, s)
+
+  let rec map3 f l1 l2 l3 =
+    match (l1, l2, l3) with
+    | [], [], [] -> []
+    | a1 :: l1, a2 :: l2, a3 :: l3 ->
+        let r = f a1 a2 a3 in
+        r :: map3 f l1 l2 l3
+    | _ -> invalid_arg "List.map3"
 end
