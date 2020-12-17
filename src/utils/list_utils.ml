@@ -7,6 +7,8 @@ module List = struct
     let rec sum' a = function [] -> a | x :: xs -> sum' (a + x) xs in
     sum' 0 l
 
+  let multiply l = List.fold_left ( * ) 1 l
+
   let lines = String.split_on_char '\n'
 
   let rec make_patches rtr acc = function
@@ -15,6 +17,14 @@ module List = struct
     | l :: rest -> make_patches rtr (acc ^ " " ^ l) rest
 
   let groups s = make_patches [] "" s
+
+  let group_list l =
+    let rec group_list' rtr acc = function
+      | [] -> List.rev (acc :: rtr)
+      | "" :: (_ :: _ as rest) -> group_list' (acc :: rtr) [] rest
+      | l :: rest -> group_list' rtr (l :: acc) rest
+    in
+    group_list' [] [] l
 
   let with_index l = List.mapi (fun i x -> (i, x)) l
 
