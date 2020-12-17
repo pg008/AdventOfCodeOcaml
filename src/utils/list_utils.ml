@@ -66,4 +66,14 @@ module List = struct
         let r = f a1 a2 a3 in
         r :: map3 f l1 l2 l3
     | _ -> invalid_arg "List.map3"
+
+  let cartesian l l' =
+    List.concat (List.map (fun e -> List.map (fun e' -> (e, e')) l') l)
+
+  let cartesian3 l1 l2 l3 =
+    cartesian l1 (cartesian l2 l3) |> List.map (fun (z, (x, y)) -> (z, x, y))
+
+  let cartesian4 l1 l2 l3 l4 =
+    cartesian l1 (cartesian3 l2 l3 l4)
+    |> List.map (fun (z, (x, y, t)) -> (z, x, y, t))
 end
