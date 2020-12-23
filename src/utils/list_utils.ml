@@ -83,4 +83,17 @@ module List = struct
       | ls -> transpose_rec (List.map List.hd ls :: acc) (List.map List.tl ls)
     in
     transpose_rec [] ls
+
+  let rec take n l =
+    if n <= 0 then []
+    else
+      match l with
+      | [] -> failwith "invalid len"
+      | x :: xs -> x :: take (n - 1) xs
+
+  let of_queue q =
+    q |> Queue.to_seq |> List.of_seq |> List.map string_of_int
+    |> String.concat ","
+
+  let of_queue2 q = q |> Queue.to_seq |> List.of_seq
 end
