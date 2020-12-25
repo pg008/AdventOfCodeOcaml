@@ -57,7 +57,7 @@ let rec process is_floating state = function
             state.memory floating
         else
           IntMap.add address
-            (state.ones_mask + value |> Int.logand state.zeros_mask)
+            (Int.logor state.ones_mask value |> Int.logand state.zeros_mask)
             state.memory
       in
       let state = { state with memory } in
