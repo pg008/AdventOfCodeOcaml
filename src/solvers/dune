@@ -1,5 +1,5 @@
 (library
- (libraries utils)
+ (libraries utils str)
  (name solvers))
 
 ;(env
