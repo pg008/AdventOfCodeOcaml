@@ -1,6 +1,5 @@
 open Signature
 open Utils.List_utils
-open Utils.String_utils
 module IntMap = Map.Make (Int)
 module IntSet = Set.Make (Int)
 
@@ -9,6 +8,7 @@ module Solver : Solver = struct
 
   type cube = slice Array.t
 
+  (*
   let count_slice slice =
     Array.fold_left
       (fun s a -> Array.fold_left (fun s' x -> if x then 1 + s' else s') s a)
@@ -16,6 +16,7 @@ module Solver : Solver = struct
 
   let count (cube : cube) =
     Array.fold_left (fun s a -> s + count_slice a) 0 cube
+
 
   let string_of_row l =
     Array.map (fun x -> if x then "#" else ".") l
@@ -30,7 +31,7 @@ module Solver : Solver = struct
       (fun x -> Printf.printf "---------\n%s\n---------\n" (print_slice x))
       cube;
     Printf.printf "XXXXXXXXXX\n"
-
+*)
   let parse_data n s : cube =
     let lines = List.lines s |> List.map List.list_of_string in
     let slice =

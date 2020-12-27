@@ -12,7 +12,7 @@ let parse l =
 
 let wrap i = if i = 0 then 9 else i
 
-let rec split_at i l =
+let split_at i l =
   let rec aux acc = function
     | x :: xs when i = x -> (List.rev (x :: acc), xs)
     | x :: xs -> aux (x :: acc) xs

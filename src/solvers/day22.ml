@@ -1,7 +1,6 @@
 open Signature
 open Utils.List_utils
 open Utils.String_utils
-open Utils.General_utils
 
 module Solver : Solver = struct
   type player = { deck : int Queue.t }
@@ -61,8 +60,6 @@ module Solver : Solver = struct
           Queue.add t2 deck2;
           Queue.add t1 deck2;
           play p1 p2)
-
-  let rr = ref 0
 
   (* Different implementations of history tracking, fun to see the time difference *)
   (*
@@ -124,8 +121,8 @@ module Solver : Solver = struct
                   play_improved history p1 p2)
             with EndGame -> First (p1, p2)))
 *)
-
-  let rec play_improved history ({ deck = deck1 } as p1)
+  (*
+  let rec play_improved1 history ({ deck = deck1 } as p1)
       ({ deck = deck2 } as p2) =
     match
       Hashtbl.find_opt history
@@ -154,16 +151,17 @@ module Solver : Solver = struct
                   |> List.to_seq |> Queue.of_seq
                 in
                 match
-                  play_improved (Hashtbl.create 200) { deck = q1 } { deck = q2 }
+                  play_improved1 (Hashtbl.create 200) { deck = q1 }
+                    { deck = q2 }
                 with
                 | First _ ->
                     Queue.add t1 deck1;
                     Queue.add t2 deck1;
-                    play_improved history p1 p2
+                    play_improved1 history p1 p2
                 | Second _ ->
                     Queue.add t2 deck2;
                     Queue.add t1 deck2;
-                    play_improved history p1 p2)
+                    play_improved1 history p1 p2)
               else (
                 (* Normal *)
                 Hashtbl.add history
@@ -172,13 +170,13 @@ module Solver : Solver = struct
                 if t1 > t2 then (
                   Queue.add t1 deck1;
                   Queue.add t2 deck1;
-                  play_improved history p1 p2)
+                  play_improved1 history p1 p2)
                 else (
                   Queue.add t2 deck2;
                   Queue.add t1 deck2;
-                  play_improved history p1 p2))
+                  play_improved1 history p1 p2))
             with EndGame -> First (p1, p2)))
-
+*)
   let rec play_improved history ({ deck = deck1 } as p1)
       ({ deck = deck2 } as p2) =
     match

@@ -1,8 +1,6 @@
 open Signature
 open Utils.List_utils
-open Utils.String_utils
 open Utils.General_utils
-open Utils.Option_utils
 
 type coord = int * int
 
@@ -48,7 +46,7 @@ let parse_line l =
 
   l |> List.list_of_string |> aux
 
-let rec move loc l = List.fold_left ( ++ ) loc (List.map dir_to_vec l)
+let move loc l = List.fold_left ( ++ ) loc (List.map dir_to_vec l)
 
 let parse d = d |> List.lines |> List.map parse_line
 

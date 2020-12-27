@@ -28,7 +28,7 @@ let print_tile tile =
 
 let rotate l = List.transpose @@ List.rev l
 
-let get_top (x :: _) : bool list = x
+let get_top l : bool list = List.hd l
 
 let get_bot tile = get_top (List.rev tile)
 
@@ -131,7 +131,7 @@ module Solver : Solver = struct
     let tiles = data |> List.lines |> parse in
     let w = floor (sqrt (List.length tiles |> float_of_int)) |> int_of_float in
     img := empty_image w;
-    let x = solve !img (0, 0) w tiles in
+    let _ = solve !img (0, 0) w tiles in
     let sol = !img in
     let k =
       sol.(0).(0).id * sol.(0).(w - 1).id * sol.(w - 1).(0).id

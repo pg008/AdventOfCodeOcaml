@@ -1,7 +1,6 @@
 open Signature
 open Utils.List_utils
 open Utils.String_utils
-open Utils.General_utils
 
 module Solver : Solver = struct
   module StringSet = Set.Make (String)
@@ -38,8 +37,9 @@ module Solver : Solver = struct
     in
     { lines; all_allergens; all_ingredients }
 
-  let sset s = s |> StringSet.to_seq |> List.of_seq |> String.concat ","
-
+  (*
+     let sset s = s |> StringSet.to_seq |> List.of_seq |> String.concat ","
+  *)
   let remove taken l =
     List.map
       (fun ((x, s), _) ->
