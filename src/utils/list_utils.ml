@@ -96,4 +96,22 @@ module List = struct
     |> String.concat ","
 
   let of_queue2 q = q |> Queue.to_seq |> List.of_seq
+
+  let split l n =
+    let rec aux acc n' l' =
+      if n' <= 0 then (List.rev acc, l')
+      else
+        match l' with [] -> (acc, []) | x :: xs -> aux (x :: acc) (n' - 1) xs
+    in
+    aux [] n l
+
+  let rotate l n =
+    let f, s = split l n in
+    s @ f
+
+  let rotate1 = function [] -> [] | x :: xs -> xs @ [ x ]
+
+  let take3 = function
+    | a :: b :: c :: xs -> ([ a; b; c ], xs)
+    | _ -> failwith "Error"
 end
