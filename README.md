@@ -40,4 +40,4 @@ Natančnejša navodila je Žiga prijazno napisal na <https://ucilnica.fmf.uni-lj
 
 ### Funkcija `int_of_string` javi napako
 
-Pri kopiranju vsebine datoteke ste verjetno po nesreči dodali še eno prazno vrstico na konec. Ocaml tako skuša prazen niz pretvoriti v številko, kar pa ga zmoti. Odstranite prazno vrstico s konca vhhodne datoteke.
+Pri kopiranju vsebine datoteke ste verjetno po nesreči dodali še eno prazno vrstico na konec. Ocaml tako skuša prazen niz pretvoriti v številko, kar pa ga zmoti. Odstranite prazno vrstico s konca vhodne datoteke.
