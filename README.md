@@ -10,7 +10,7 @@ Primer uporabe je tako za `opam`, kot brez njega podan za dan `0`, ki je rešite
 
 ## Uporaba z nameščenim `opam`-om
 
-Namestite si ukaz `make` in z opamom namestite `dune utop ocamlformat`. 
+Namestite si ukaz `make` in z opamom namestite `dune utop ocamlformat`.
 
 Rešitev dneva `X` najlažje podate tako, da v mapo `src/solutions/` dodate datoteko `dayX.ml`. V tej datoteki definirajte nov modul `Solver` in funkciji `naloga1` ter `naloga2`. Po želji si lahko definirate tudi pomožne funkcije. Če pa te funkcije pridejo v uporabo pogosteje, se vam jih splača definirati kje v `utils`, kot so recimo definirani `list_utils`.
 
@@ -25,9 +25,11 @@ V datoteki `project_windows` je že pripravljena koda za reševanje v eni sami d
 Za reševanje popravite funkcijo `choose_solver` in dodajte ustrezen modul `SolverX`.
 
 Program poženite s popravljenim `task`-om iz repozitorija predmeta. POZOR: Odstranite `-init`, saj drugače testni program ne prepozna argumenta X:
-```
+
+```bash
 C:\\ ... bin\\ocaml.exe  \"${file}\" X"
 ```
+
 Kjer je X številka dneva, ki ga rešujete.
 
 ## Pogosta vprašanje in rešitve

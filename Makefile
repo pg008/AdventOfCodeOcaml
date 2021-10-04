@@ -16,4 +16,4 @@ clean:
 	dune clean
 
 run: default
-	./solution.exe $(DAY)
+	./solution.exe $(DAY) $(YEAR)
