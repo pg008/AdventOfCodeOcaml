@@ -1,6 +1,6 @@
 (executable
  (name solution)
- (libraries utils solvers)
+ (libraries utils solvers solvers2020)
  (promote
   (until-clean)
   (into ../..)))

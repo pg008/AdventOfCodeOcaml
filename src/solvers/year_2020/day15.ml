@@ -1,4 +1,4 @@
-open Signature
+open Solvers.Signature
 open Utils.List_utils
 module IntMap = Map.Make (Int)
 

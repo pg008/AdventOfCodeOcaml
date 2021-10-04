@@ -1,5 +1,6 @@
 (library
- (name solvers))
+ (libraries utils str solvers)
+ (name solvers2020))
 
 ;(env
 ; (dev
