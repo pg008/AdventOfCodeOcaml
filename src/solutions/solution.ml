@@ -1,34 +1,14 @@
 open Solvers.Signature
-open Solvers2020
+
+(* open Solvers2020 *)
+open Solvers2021
 
 let choose_solver : string -> (module Solver) = function
   | "0" -> (module Day0.Solver)
-  | "1" -> (module Day1.Solver)
-  | "2" -> (module Day2.Solver)
-  | "3" -> (module Day3.Solver)
-  | "4" -> (module Day4.Solver)
-  | "5" -> (module Day5.Solver)
-  | "6" -> (module Day6.Solver)
-  | "7" -> (module Day7.Solver)
-  | "8" -> (module Day8.Solver)
-  | "9" -> (module Day9.Solver)
-  | "10" -> (module Day10.Solver)
-  | "11" -> (module Day11.Solver)
-  | "12" -> (module Day12.Solver)
-  | "13" -> (module Day13.Solver)
-  | "14" -> (module Day14.Solver)
-  | "15" -> (module Day15.Solver)
-  | "16" -> (module Day16.Solver)
-  | "17" -> (module Day17.Solver)
-  | "18" -> (module Day18.Solver)
-  | "19" -> (module Day19.Solver)
-  | "20" -> (module Day20.Solver)
-  | "21" -> (module Day21.Solver)
-  | "22" -> (module Day22.Solver)
-  | "23" -> (module Day23.Solver)
-  | "24" -> (module Day24.Solver)
-  | "25" -> (module Day25.Solver)
-  | _ -> failwith "Ni še rešeno"
+  | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12"
+  | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | "21" | "22" | "23"
+  | "24" | "25" | _ ->
+      failwith "Ni še rešeno"
 
 let main () =
   let day = Sys.argv.(1) in
