@@ -1,5 +1,5 @@
-open Solvers
 open Solvers.Signature
+open Solvers2020
 
 let choose_solver : string -> (module Solver) = function
   | "0" -> (module Day0.Solver)

@@ -1,4 +1,4 @@
-open Signature
+open Solvers.Signature
 open Utils.List_utils
 
 (* open Utils.Option_utils *)
