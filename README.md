@@ -38,7 +38,7 @@ Kjer je X številka dneva, ki ga rešujete.
 
 Datoteka je shranjena v `CRLF` formatu, pretvorite jo format `LF`. To najlažje storite tako, da jo odprete v VSC in spodaj izberete pravilni format ter ponovno shranite datoteko.
 
-Natančnejša navodila je Žiga prijazno napisal na <https://ucilnica.fmf.uni-lj.si/mod/forum/discuss.php?d=18334>
+Natančnejša navodila je Žiga prijazno napisal na <https://ucilnica2021.fmf.uni-lj.si/mod/forum/discuss.php?d=18334>
 
 ### Funkcija `int_of_string` javi napako
 
