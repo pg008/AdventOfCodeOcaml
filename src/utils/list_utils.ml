@@ -11,6 +11,10 @@ module List = struct
 
   let lines = String.split_on_char '\n'
 
+  let split_white l =
+    String.split_on_char ' ' l |> List.map String.trim
+    |> List.filter (( <> ) "")
+
   let rec make_patches rtr acc = function
     | [] -> List.rev (acc :: rtr)
     | "" :: (_ :: _ as rest) -> make_patches (acc :: rtr) "" rest
@@ -114,4 +118,19 @@ module List = struct
   let take3 = function
     | a :: b :: c :: xs -> ([ a; b; c ], xs)
     | _ -> failwith "Error"
+
+  let rec map2_unsafe f l1 l2 =
+    match (l1, l2) with
+    | x :: xs, y :: ys -> f x y :: map2_unsafe f xs ys
+    | _ -> []
+
+  let chunkify size lst =
+    let rec aux chunk chunks n lst =
+      match (n, lst) with
+      | _, [] when chunk = [] -> List.rev chunks
+      | _, [] -> List.rev (List.rev chunk :: chunks)
+      | 0, _ :: _ -> aux [] (List.rev chunk :: chunks) size lst
+      | _, x :: xs -> aux (x :: chunk) chunks (n - 1) xs
+    in
+    aux [] [] size lst
 end
