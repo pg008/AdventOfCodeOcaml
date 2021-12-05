@@ -40,10 +40,12 @@ let choose_solver year day : (module Solver) =
       | "2" -> (module Day2.Solver)
       | "3" -> (module Day3.Solver)
       | "4" -> (module Day4.Solver)
+      | "5" -> (module Day5.Solver)
       | _ -> failwith "Ni še rešeno")
   | _ -> failwith "Neveljavno leto"
 
 let main () =
+  Printexc.record_backtrace true;
   let day = Sys.argv.(1) in
   let year = try Sys.argv.(2) with Invalid_argument _ -> "2021" in
   Printf.printf "%s\n" year;
