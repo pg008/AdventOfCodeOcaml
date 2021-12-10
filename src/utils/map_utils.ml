@@ -32,6 +32,8 @@ module Counter = struct
     include Map.S
 
     val plus : key -> int -> int t -> int t
+
+    val most_common : int t -> (key * int) list
   end
 
   module Make (Ord : MMap.OrderedType) : S with type key = Ord.t = struct
@@ -39,5 +41,8 @@ module Counter = struct
 
     let plus k v m =
       update k (function None -> Some v | Some v' -> Some (v + v')) m
+
+    let most_common m =
+      m |> bindings |> List.sort (fun (_, v1) (_, v2) -> Stdlib.compare v2 v1)
   end
 end
