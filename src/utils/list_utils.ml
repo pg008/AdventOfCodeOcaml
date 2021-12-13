@@ -63,6 +63,14 @@ module List = struct
     let f, s = split' [] n l in
     (List.rev f, s)
 
+  let split_on f l =
+    let rec split acc = function
+      | [] -> (List.rev acc, [])
+      | x :: xs when f x -> (List.rev acc, xs)
+      | x :: xs -> split (x :: acc) xs
+    in
+    split [] l
+
   let rec map3 f l1 l2 l3 =
     match (l1, l2, l3) with
     | [], [], [] -> []
@@ -133,4 +141,17 @@ module List = struct
       | _, x :: xs -> aux (x :: chunk) chunks (n - 1) xs
     in
     aux [] [] size lst
+
+  let transpose_matrix m =
+    let h = Array.length m in
+    if h = 0 then m
+    else
+      let w = Array.length m.(0) in
+      let mt = Array.make_matrix w h m.(0).(0) in
+      for j = 0 to w - 1 do
+        for i = 0 to h - 1 do
+          mt.(j).(i) <- m.(i).(j)
+        done
+      done;
+      mt
 end
