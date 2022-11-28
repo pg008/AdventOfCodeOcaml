@@ -50,12 +50,17 @@ let choose_solver year day : (module Solver) =
       | "12" -> (module Day12.Solver)
       | "13" -> (module Day13.Solver)
       | _ -> failwith "Ni še rešeno")
+  | "2022" -> (
+      let open Solvers2022 in
+      match day with
+      | "0" -> (module Day0.Solver)
+      | _ -> failwith "Ni še rešeno")
   | _ -> failwith "Neveljavno leto"
 
 let main () =
   Printexc.record_backtrace true;
   let day = Sys.argv.(1) in
-  let year = try Sys.argv.(2) with Invalid_argument _ -> "2021" in
+  let year = try Sys.argv.(2) with Invalid_argument _ -> "2022" in
   Printf.printf "%s\n" year;
   let folder = year ^ "/day_" in
   print_endline ("Solving DAY: " ^ day);

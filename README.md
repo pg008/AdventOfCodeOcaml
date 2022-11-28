@@ -1,4 +1,4 @@
-# Advent of code 2020, 2021, 
+# Advent of code 2020, 2021, 2022,
 
 ## Nasveti za uporabo
 
