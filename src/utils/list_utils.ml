@@ -9,7 +9,7 @@ module List = struct
 
   let multiply l = List.fold_left ( * ) 1 l
 
-  let lines = String.split_on_char '\n'
+  let lines input = input |> String.trim |> String.split_on_char '\n'
 
   let split_white l =
     String.split_on_char ' ' l |> List.map String.trim

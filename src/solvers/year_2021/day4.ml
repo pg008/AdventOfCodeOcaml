@@ -54,7 +54,7 @@ module Solver : Solver = struct
         match (win, keep) with
         | [ b ], [] -> (x, b)
         | _, [] -> failwith "Bug in implementation"
-        | _, new_boards -> play_last { numbers = xs; boards = new_boards })
+        | _, new_boards -> play_last { numbers = xs; boards = new_boards } )
 
   let naloga1 (data : string) =
     let game = parse_data data in

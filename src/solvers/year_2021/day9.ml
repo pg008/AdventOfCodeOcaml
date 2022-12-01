@@ -48,14 +48,14 @@ module Solver : Solver = struct
     let rec flood_fill num (i, j) =
       if valid (i, j) then (
         matrix.(i).(j) <- num;
-        List.iter (flood_fill num) (neighbours i j))
+        List.iter (flood_fill num) (neighbours i j) )
       else ()
     in
     for i = 0 to h - 1 do
       for j = 0 to w - 1 do
         if valid (i, j) then (
           flood_fill !num (i, j);
-          num := !num - 1)
+          num := !num - 1 )
       done
     done;
     let line = matrix |> Array.to_list |> Array.concat in

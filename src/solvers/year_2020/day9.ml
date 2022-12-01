@@ -46,7 +46,7 @@ let rec find state = function
       | None | Some 0 -> Some x
       | Some _ ->
           let state = remove_num state in
-          find (add_num state x) xs)
+          find (add_num state x) xs )
 
 module Solver : Solver = struct
   let naloga1 data =
@@ -62,7 +62,7 @@ module Solver : Solver = struct
           if sum + x = target then ()
           else if sum + x < target then (
             Queue.push x q;
-            find' (sum + x) xs)
+            find' (sum + x) xs )
           else
             let last = Queue.pop q in
             find' (sum - last) l

@@ -21,7 +21,7 @@ module Solver : Solver = struct
     | x :: xs -> (
         match find_s (2020 - x) full rev with
         | Some d -> x * d
-        | None -> process_2 full rev xs)
+        | None -> process_2 full rev xs )
 
   (* O(n^2), I think it can be better *)
   let naloga2 data _part1 =

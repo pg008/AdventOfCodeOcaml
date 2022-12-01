@@ -55,11 +55,11 @@ module Solver : Solver = struct
         if t1 > t2 then (
           Queue.add t1 deck1;
           Queue.add t2 deck1;
-          play p1 p2)
+          play p1 p2 )
         else (
           Queue.add t2 deck2;
           Queue.add t1 deck2;
-          play p1 p2)
+          play p1 p2 )
 
   (* Different implementations of history tracking, fun to see the time difference *)
   (*
@@ -177,8 +177,8 @@ module Solver : Solver = struct
                   play_improved1 history p1 p2))
             with EndGame -> First (p1, p2)))
 *)
-  let rec play_improved history ({ deck = deck1 } as p1)
-      ({ deck = deck2 } as p2) =
+  let rec play_improved history ({ deck = deck1 } as p1) ({ deck = deck2 } as p2)
+      =
     match
       ListPSet.find_opt
         (deck1 |> List.of_queue2, deck2 |> List.of_queue2)
@@ -217,7 +217,7 @@ module Solver : Solver = struct
                 | Second _ ->
                     Queue.add t2 deck2;
                     Queue.add t1 deck2;
-                    play_improved history p1 p2)
+                    play_improved history p1 p2 )
               else
                 (* Normal *)
                 let history =
@@ -228,12 +228,12 @@ module Solver : Solver = struct
                 if t1 > t2 then (
                   Queue.add t1 deck1;
                   Queue.add t2 deck1;
-                  play_improved history p1 p2)
+                  play_improved history p1 p2 )
                 else (
                   Queue.add t2 deck2;
                   Queue.add t1 deck2;
-                  play_improved history p1 p2)
-            with EndGame -> First (p1, p2)))
+                  play_improved history p1 p2 )
+            with EndGame -> First (p1, p2) ) )
 
   let naloga1 data =
     let p1, p2 = parse_data data in

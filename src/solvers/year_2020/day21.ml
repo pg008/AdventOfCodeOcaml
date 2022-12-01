@@ -81,8 +81,8 @@ module Solver : Solver = struct
       List.fold_left
         (fun s { ingr; _ } ->
           s
-          + ((List.map (fun x -> StringSet.mem x sure_good)) ingr
-            |> List.count true))
+          + ( (List.map (fun x -> StringSet.mem x sure_good)) ingr
+            |> List.count true ))
         0 data.lines
     in
     res |> string_of_int

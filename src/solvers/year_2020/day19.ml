@@ -39,8 +39,8 @@ module Solver : Solver = struct
           name = int_of_string n;
           matc =
             Seq
-              (rest |> String.trim |> String.split_on_char ' '
-             |> List.map int_of_string);
+              ( rest |> String.trim |> String.split_on_char ' '
+              |> List.map int_of_string );
         }
 
   let parse special s =

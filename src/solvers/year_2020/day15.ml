@@ -11,7 +11,7 @@ module Solver : Solver = struct
       | Some x -> (
           match x with
           | [] -> Some [ turn ]
-          | [ a ] | a :: _ -> Some [ turn; a ]))
+          | [ a ] | a :: _ -> Some [ turn; a ] ))
 
   let parse_data s =
     let nums = List.map int_of_string (s |> String.split_on_char ',') in

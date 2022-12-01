@@ -92,7 +92,7 @@ let rec solve image (i, j) width (tiles : tile list list) =
             let i', j' = if j + 1 = width then (i + 1, 0) else (i, j + 1) in
             match solve image (i', j') width available with
             | None -> test_full_tile available ts
-            | x -> x)
+            | x -> x )
           else test_full_tile available ts
     in
     let rec recuse fail = function
@@ -101,7 +101,7 @@ let rec solve image (i, j) width (tiles : tile list list) =
           let rest = fail @ xs in
           match test_full_tile rest tile_s with
           | None -> recuse (tile_s :: fail) xs
-          | x -> x)
+          | x -> x )
     in
     recuse [] tiles
 
@@ -155,7 +155,7 @@ module Solver : Solver = struct
           found := true;
           List.iter (fun ind -> copy.(i).(j + ind) <- false) i1;
           List.iter (fun ind -> copy.(i + 1).(j + ind) <- false) i2;
-          List.iter (fun ind -> copy.(i + 2).(j + ind) <- false) i3)
+          List.iter (fun ind -> copy.(i + 2).(j + ind) <- false) i3 )
       done
     done;
     (!found, copy)

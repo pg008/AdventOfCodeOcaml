@@ -2,7 +2,7 @@
  (libraries utils str solvers)
  (name solvers2022))
 
-;(env
-; (dev
-;  (flags
-;   (:standard -warn-error -A))))
+(env
+ (dev
+  (flags
+   (:standard -warn-error -A))))

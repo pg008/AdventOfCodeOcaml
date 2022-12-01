@@ -28,7 +28,7 @@ module Solver : Solver = struct
       | [], _ | _, [] -> assert false
       | n :: ns, m :: ms -> (
           let inv = mod_inv n m in
-          match inv with None -> None | Some v -> list_inverses ns ms (v :: l))
+          match inv with None -> None | Some v -> list_inverses ns ms (v :: l) )
     in
     Option.map (fun l -> List.rev l) (list_inverses ns ms [])
 

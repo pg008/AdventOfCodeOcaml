@@ -95,7 +95,7 @@ module Solver : Solver = struct
           | Halt c -> Finished c
           | Running ({ state; _ } as config) ->
               run_til_loop
-                { config with state = { state with step = state.step + 1 } })
+                { config with state = { state with step = state.step + 1 } } )
       | _ -> Loop config
 
     let change = function Nop x -> Jmp x | Jmp x -> Nop x | x -> x
@@ -121,7 +121,7 @@ module Solver : Solver = struct
             | Finished c -> c
             | Loop _ ->
                 config.initial_instructions.(i) <- last;
-                try' (i + 1) (clean config))
+                try' (i + 1) (clean config) )
       in
       try' 0 initial_config
   end
