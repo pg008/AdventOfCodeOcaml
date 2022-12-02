@@ -40,12 +40,12 @@ module Solver : Solver = struct
 
   let obliki_iz_niza n =
     match String.split_on_char ' ' n with
-    | a :: b :: xs -> (oblika_iz_crke a, oblika_iz_crke b)
+    | a :: b :: _ -> (oblika_iz_crke a, oblika_iz_crke b)
     | _ -> failwith "napačen niz"
 
   let pravi_obliki_iz_niza n =
     match String.split_on_char ' ' n with
-    | a :: b :: xs -> predvideni_obliki (oblika_iz_crke a) (izid_iz_crke b)
+    | a :: b :: _ -> predvideni_obliki (oblika_iz_crke a) (izid_iz_crke b)
     | _ -> failwith "napačen niz"
 
   let skupni_sestevek f poteze =
