@@ -4,6 +4,7 @@ open Utils.List_utils
 module Solver : Solver = struct
   module VecSet = Set.Make (struct
     type t = int * int
+
     let compare = compare
   end)
 
