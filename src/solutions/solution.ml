@@ -67,6 +67,7 @@ let choose_solver year day : (module Solver) =
       | "11" -> (module Day11.Solver)
       | "13" -> (module Day13.Solver)
       | "14" -> (module Day14.Solver)
+      | "18" -> (module Day18.Solver)
       | _ -> failwith "Ni še rešeno" )
   | _ -> failwith "Neveljavno leto"
 
